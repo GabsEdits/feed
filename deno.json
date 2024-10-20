@@ -1,5 +1,6 @@
 {
   "name": "@feed/feed",
   "version": "1.0.0",
-  "exports": "./mod.ts"
+  "exports": "./mod.ts",
+  "exclude": [".github"]
 }

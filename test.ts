@@ -134,10 +134,10 @@ Deno.test("JSON Feed Generation", () => {
     authors: [
       {
         name: "John Doe",
-        email: "test@example.org"
+        email: "test@example.org",
       },
     ],
-    updated: new Date("2024-10-19T15:12:56Z")
+    updated: new Date("2024-10-19T15:12:56Z"),
   });
 
   jsonFeed.addItem({
