@@ -31,6 +31,17 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
       `  </author>\n`,
     ];
 
+    if (this.options.icon) {
+      xmlParts.push(`  <icon>${escapeXml(this.options.icon)}</icon>\n`);
+      xmlParts.push(`  <logo>${escapeXml(this.options.icon)}</logo>\n`);
+    }
+
+    if (this.options.feed) {
+      xmlParts.push(
+        `  <link rel="self" href="${escapeXml(this.options.feed)}"/>\n`,
+      );
+    }
+
     this.items.forEach((entry) => {
       xmlParts.push(
         `  <entry>\n`,
