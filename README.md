@@ -3,7 +3,8 @@
 <p>A simple, and easy RSS and Atom feed generator for Deno.</p>
 </div>
 
-- Build with modern technologies, and the latest standards, using TypeScript and Deno.
+- Build with modern technologies, and the latest standards, using TypeScript and
+  Deno.
 - Using JSR, insuring the best performance, and the best compatibility.
 - Supported feed formats: RSS 2.0, Atom 1.0.
 - Easy to use, and easy to customize.
