@@ -94,9 +94,9 @@ Deno.test("Atom Feed Generation", () => {
     <feed xmlns="http://www.w3.org/2005/Atom">
       <title>Atom Feed Example</title>
       <subtitle>A simple Atom feed example</subtitle>
-      <link href="http://example.com/atom-feed"/>
+      <link rel="alternate" href="http://example.com/atom-feed"/>
       <updated>2024-10-19T15:12:56.000Z</updated>
-      <generator>Feed for JSR</generator>
+      <generator>Feed for Deno/JSR</generator>
       <author>
         <name>John Doe</name>
         <email>test@example.org</email>
