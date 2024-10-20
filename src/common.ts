@@ -57,4 +57,8 @@ export abstract class BaseFeed<T> {
   addCategory(category: string) {
     this.categories.push(category);
   }
+
+  addContributor(contributor: { name: string; email: string; link?: string }) {
+    this.options.authors.push(contributor);
+  }
 }
