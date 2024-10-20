@@ -1,4 +1,4 @@
-import { atom, rss } from "@feed/feed";
+import { atom, rss, json } from "@feed/feed";
 
 function assertEquals(actual: string, expected: string): void {
   if (actual !== expected) {
@@ -116,4 +116,53 @@ Deno.test("Atom Feed Generation", () => {
     atomFeed.build().replace(/\s/g, ""),
     expected.replace(/\s/g, ""),
   );
+});
+
+Deno.test("JSON Feed Generation", () => {
+  const jsonFeed = new json({
+    title: "JSON Feed Example",
+    description: "A simple JSON feed example",
+    link: "http://example.com/json-feed",
+    feed: "http://example.com/json-feed/feed.json",
+    updated: new Date("2024-10-19T15:12:56Z"),
+    author: {
+      name: "John Doe",
+      link: "http://example.com",
+      email: "test@example.org",
+    },
+  });
+
+  jsonFeed.addItem({
+    id: "1",
+    title: "First JSON Item",
+    url: "http://example.com/json1",
+    date_published: new Date("2024-10-19T15:12:56Z"),
+    content_html: "<p>Content for JSON item 1</p>",
+  });
+
+  const expected = `
+    {
+      "version": "https://jsonfeed.org/version/1",
+      "title": "JSON Feed Example",
+      "home_page_url": "http://example.com/json-feed",
+      "feed_url": "http://example.com/json-feed/feed.json",
+      "author": {
+        "name": "John Doe",
+        "email": "test@example.org",
+        "link": "http://example.com"
+      },
+      "updated": "2024-10-19T15:12:56.000Z",
+      "items": [
+        {
+          "id": "1",
+          "title": "First JSON Item",
+          "url": "http://example.com/json1",
+          "date_published": "2024-10-19T15:12:56.000Z",
+          "content_html": "<p>Content for JSON item 1</p>"
+        }
+      ]
+    }
+`.replace(/\n\s+/g, "\n").trim();
+
+  assertEquals(jsonFeed.build().replace(/\s/g, ""), expected.replace(/\s/g, ""));
 });

@@ -6,7 +6,7 @@
 - Build with modern technologies, and the latest standards, using TypeScript and
   Deno.
 - Using JSR, insuring the best performance, and the best compatibility.
-- Supported feed formats: RSS 2.0, Atom 1.0.
+- Supported feed formats: RSS 2.0, Atom 1.0 and JSON Feed 1.1.
 - Easy to use, and easy to customize.
 - Supports Node.js, and Deno.
 - No dependencies.
@@ -88,8 +88,30 @@ rssFeed.addItem({
 Deno.writeTextFileSync("example.rss", rssFeed.build());
 ```
 
+### JSON Feed
+
+```typescript
+import { json } from "@feed/feed";
+
+const jsonFeed = new json({
+  title: "JSON Feed Example",
+  description: "A simple JSON feed example",
+  home_page_url: "http://example.com/json-feed",
+  feed_url: "http://example.com/json-feed/feed.json",
+});
+
+jsonFeed.addItem({
+  id: "1",
+  title: "First JSON Item",
+  url: "http://example.com/json1",
+  date_published: new Date("2024-10-19T15:12:56Z"),
+  content_text: "Content for JSON item 1",
+});
+
+Deno.writeTextFileSync("example.json", jsonFeed.build());
+```
+
 ## Roadmap
 
-- [ ] Add `json` feed format.
 - [ ] Allow multiple authors.
 - [ ] Add contributors.

@@ -3,7 +3,7 @@ export interface FeedOptions {
   description: string;
   link: string;
   updated: Date;
-  id: string;
+  id?: string;
   language?: string;
   feedLinks?: {
     atom?: string;
@@ -14,6 +14,8 @@ export interface FeedOptions {
     link?: string;
   };
   copyright?: string;
+  feed?: string;
+  icon?: string;
 }
 
 export function escapeXml(unsafe: string): string {
