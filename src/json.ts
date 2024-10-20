@@ -20,12 +20,7 @@ export class JsonFeed extends BaseFeed<JsonItem> {
       home_page_url: this.options.link,
       feed_url: this.options.feed,
       icon: this.options.icon,
-      author: {
-        name: this.options.author.name,
-        email: this.options.author.email,
-        link: this.options.author.link,
-      },
-      updated: this.options.updated.toISOString(),
+      updated: this.options.updated?.toISOString(),
       items: this.items.map((item) => {
         const jsonItem: Record<string, unknown> = {
           id: item.id,

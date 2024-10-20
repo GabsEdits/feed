@@ -23,10 +23,13 @@ Deno.test("RSS Feed Generation", () => {
     link: "http://example.com/rss-feed",
     updated: new Date("2024-10-19T15:12:56Z"),
     id: "http://example.com/rss-feed",
-    author: {
-      name: "John Doe",
-      email: "test@example.org",
-    },
+    authors: [
+      {
+        name: "John Doe",
+        email: "test@example.org",
+        link: "https://example.org",
+      },
+    ],
   });
 
   rssFeed.addItem({
@@ -48,9 +51,10 @@ Deno.test("RSS Feed Generation", () => {
         <link>http://example.com/rss-feed</link>
         <lastBuildDate>Sat, 19 Oct 2024 15:12:56 GMT</lastBuildDate>
         <language>en</language>
-        <managingEditor>test@example.org (John Doe)</managingEditor>
-        <webMaster>test@example.org (John Doe)</webMaster>
         <generator>Feed from JSR</generator>
+        <webMaster>test@example.org (John Doe)</webMaster>
+        <author>test@example.org (John Doe)</author>
+        <managingEditor>test@example.org (John Doe)</managingEditor>
         <item>
           <title>First RSS Item</title>
           <link>http://example.com/rss1</link>
@@ -71,10 +75,13 @@ Deno.test("Atom Feed Generation", () => {
     title: "Atom Feed Example",
     description: "A simple Atom feed example",
     link: "http://example.com/atom-feed",
-    author: {
-      name: "John Doe",
-      email: "test@example.org",
-    },
+    authors: [
+      {
+        name: "John Doe",
+        email: "test@example.org",
+        link: "https://example.org",
+      },
+    ],
     updated: new Date("2024-10-19T15:12:56Z"),
     id: "https://example.com/atom-feed",
   });
@@ -124,12 +131,13 @@ Deno.test("JSON Feed Generation", () => {
     description: "A simple JSON feed example",
     link: "http://example.com/json-feed",
     feed: "http://example.com/json-feed/feed.json",
-    updated: new Date("2024-10-19T15:12:56Z"),
-    author: {
-      name: "John Doe",
-      link: "http://example.com",
-      email: "test@example.org",
-    },
+    authors: [
+      {
+        name: "John Doe",
+        email: "test@example.org"
+      },
+    ],
+    updated: new Date("2024-10-19T15:12:56Z")
   });
 
   jsonFeed.addItem({
@@ -137,7 +145,7 @@ Deno.test("JSON Feed Generation", () => {
     title: "First JSON Item",
     url: "http://example.com/json1",
     date_published: new Date("2024-10-19T15:12:56Z"),
-    content_html: "<p>Content for JSON item 1</p>",
+    content_html: "Content for JSON item 1",
   });
 
   const expected = `
@@ -146,11 +154,6 @@ Deno.test("JSON Feed Generation", () => {
       "title": "JSON Feed Example",
       "home_page_url": "http://example.com/json-feed",
       "feed_url": "http://example.com/json-feed/feed.json",
-      "author": {
-        "name": "John Doe",
-        "email": "test@example.org",
-        "link": "http://example.com"
-      },
       "updated": "2024-10-19T15:12:56.000Z",
       "items": [
         {
@@ -158,7 +161,7 @@ Deno.test("JSON Feed Generation", () => {
           "title": "First JSON Item",
           "url": "http://example.com/json1",
           "date_published": "2024-10-19T15:12:56.000Z",
-          "content_html": "<p>Content for JSON item 1</p>"
+          "content_html": "Content for JSON item 1"
         }
       ]
     }

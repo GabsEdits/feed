@@ -8,11 +8,11 @@ export interface FeedOptions {
   feedLinks?: {
     atom?: string;
   };
-  author: {
+  authors: Array<{
     name: string;
     email: string;
     link?: string;
-  };
+  }>;
   copyright?: string;
   feed?: string;
   icon?: string;

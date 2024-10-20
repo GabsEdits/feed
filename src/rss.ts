@@ -25,14 +25,22 @@ export class RssFeed extends BaseFeed<RssItem> {
       `    <link>${escapeXml(this.options.link)}</link>\n`,
       `    <lastBuildDate>${this.options.updated?.toUTCString()}</lastBuildDate>\n`,
       `    <language>${this.options.language || "en"}</language>\n`,
-      `    <managingEditor>${escapeXml(this.options.author.email)} (${
-        escapeXml(this.options.author.name)
-      })</managingEditor>\n`,
-      `    <webMaster>${escapeXml(this.options.author.email)} (${
-        escapeXml(this.options.author.name)
-      })</webMaster>\n`,
       `    <generator>Feed from JSR</generator>\n`,
     ];
+
+    this.options.authors.forEach((author) => {
+      xmlParts.push(
+        `    <webMaster>${escapeXml(author.email)} (${
+          escapeXml(author.name)
+        })</webMaster>\n`,
+        `    <author>${escapeXml(author.email)} (${
+          escapeXml(author.name)
+        })</author>\n`,
+        `    <managingEditor>${escapeXml(author.email)} (${
+          escapeXml(author.name)
+        })</managingEditor>\n`,
+      );
+    });
 
     this.items.forEach((item) => {
       const itemParts: string[] = [

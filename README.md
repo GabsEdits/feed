@@ -37,10 +37,12 @@ const atomFeed = new atom({
   title: "Atom Feed Example",
   description: "A simple Atom feed example",
   link: "http://example.com/atom-feed",
-  author: {
-    name: "John Doe",
-    email: "test@example.org",
-  },
+  authors: [
+    {
+      name: "John Doe",
+      email: "test@example.org",
+    },
+  ],
   updated: new Date("2024-10-19T15:12:56Z"),
   id: "https://example.com/atom-feed",
 });
@@ -69,10 +71,12 @@ const rssFeed = new rss({
   link: "http://example.com/rss-feed",
   updated: new Date("2024-10-19T15:12:56Z"),
   id: "http://example.com/rss-feed",
-  author: {
-    name: "John Doe",
-    email: "test@example.org",
-  },
+  authors: [
+    {
+      name: "John Doe",
+      email: "test@example.org",
+    },
+  ],
 });
 
 rssFeed.addItem({
@@ -96,8 +100,15 @@ import { json } from "@feed/feed";
 const jsonFeed = new json({
   title: "JSON Feed Example",
   description: "A simple JSON feed example",
-  home_page_url: "http://example.com/json-feed",
-  feed_url: "http://example.com/json-feed/feed.json",
+  link: "http://example.com/json-feed",
+  feed: "http://example.com/json-feed/feed.json",
+  authors: [
+    {
+      name: "John Doe",
+      email: "test@example.org"
+    },
+  ],
+  updated: new Date("2024-10-19T15:12:56Z")
 });
 
 jsonFeed.addItem({
@@ -105,7 +116,7 @@ jsonFeed.addItem({
   title: "First JSON Item",
   url: "http://example.com/json1",
   date_published: new Date("2024-10-19T15:12:56Z"),
-  content_text: "Content for JSON item 1",
+  content_html: "Content for JSON item 1",
 });
 
 Deno.writeTextFileSync("example.json", jsonFeed.build());
@@ -113,5 +124,5 @@ Deno.writeTextFileSync("example.json", jsonFeed.build());
 
 ## Roadmap
 
-- [ ] Allow multiple authors.
 - [ ] Add contributors.
+- [x] Allow multiple authors.

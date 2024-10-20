@@ -25,11 +25,16 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
       `  <link rel="alternate" href="${escapeXml(this.options.link)}"/>\n`,
       `  <updated>${this.options.updated.toISOString()}</updated>\n`,
       `  <generator>Feed for Deno/JSR</generator>\n`,
-      `  <author>\n`,
-      `    <name>${escapeXml(this.options.author.name)}</name>\n`,
-      `    <email>${escapeXml(this.options.author.email)}</email>\n`,
-      `  </author>\n`,
     ];
+
+    this.options.authors.forEach((author) => {
+      xmlParts.push(
+        `  <author>\n`,
+        `    <name>${escapeXml(author.name)}</name>\n`,
+        `    <email>${escapeXml(author.email)}</email>\n`,
+        `  </author>\n`,
+      );
+    });
 
     if (this.options.icon) {
       xmlParts.push(`  <icon>${escapeXml(this.options.icon)}</icon>\n`);
