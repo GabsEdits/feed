@@ -1,4 +1,4 @@
-import { atom, rss, json } from "@feed/feed";
+import { atom, json, rss } from "@feed/feed";
 
 function assertEquals(actual: string, expected: string): void {
   if (actual !== expected) {
@@ -164,5 +164,8 @@ Deno.test("JSON Feed Generation", () => {
     }
 `.replace(/\n\s+/g, "\n").trim();
 
-  assertEquals(jsonFeed.build().replace(/\s/g, ""), expected.replace(/\s/g, ""));
+  assertEquals(
+    jsonFeed.build().replace(/\s/g, ""),
+    expected.replace(/\s/g, ""),
+  );
 });

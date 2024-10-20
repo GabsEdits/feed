@@ -39,9 +39,13 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
         `    <id>${escapeXml(entry.id)}</id>\n`,
         `    <updated>${entry.updated.toISOString()}</updated>\n`,
         `    <summary>${escapeXml(entry.summary)}</summary>\n`,
-        `    <content type="${entry.contentType || "text"}">${escapeXml(entry.content || entry.summary)}</content>\n`,
-        entry.image ? `    <media:thumbnail url="${escapeXml(entry.image)}" />\n` : '',
-        `  </entry>\n`
+        `    <content type="${entry.contentType || "text"}">${
+          escapeXml(entry.content || entry.summary)
+        }</content>\n`,
+        entry.image
+          ? `    <media:thumbnail url="${escapeXml(entry.image)}" />\n`
+          : "",
+        `  </entry>\n`,
       );
     });
 

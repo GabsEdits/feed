@@ -1,4 +1,4 @@
-import { type FeedOptions, escapeXml, BaseFeed } from './common.ts';
+import { BaseFeed, escapeXml, type FeedOptions } from "./common.ts";
 
 interface RssItem {
   title: string;
@@ -24,13 +24,17 @@ export class RssFeed extends BaseFeed<RssItem> {
       `    <description>${escapeXml(this.options.description)}</description>\n`,
       `    <link>${escapeXml(this.options.link)}</link>\n`,
       `    <lastBuildDate>${this.options.updated?.toUTCString()}</lastBuildDate>\n`,
-      `    <language>${this.options.language || 'en'}</language>\n`,
-      `    <managingEditor>${escapeXml(this.options.author.email)} (${escapeXml(this.options.author.name)})</managingEditor>\n`,
-      `    <webMaster>${escapeXml(this.options.author.email)} (${escapeXml(this.options.author.name)})</webMaster>\n`,
+      `    <language>${this.options.language || "en"}</language>\n`,
+      `    <managingEditor>${escapeXml(this.options.author.email)} (${
+        escapeXml(this.options.author.name)
+      })</managingEditor>\n`,
+      `    <webMaster>${escapeXml(this.options.author.email)} (${
+        escapeXml(this.options.author.name)
+      })</webMaster>\n`,
       `    <generator>Feed from JSR</generator>\n`,
     ];
 
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
       const itemParts: string[] = [
         `    <item>\n`,
         `      <title>${escapeXml(item.title)}</title>\n`,
@@ -40,9 +44,11 @@ export class RssFeed extends BaseFeed<RssItem> {
         `      <description>${escapeXml(item.description)}</description>\n`,
       ];
       if (item.content) {
-        const contentType = item.contentType || 'text';
+        const contentType = item.contentType || "text";
         itemParts.push(
-          `      <content:encoded type="${contentType}">${escapeXml(item.content)}</content:encoded>\n`
+          `      <content:encoded type="${contentType}">${
+            escapeXml(item.content)
+          }</content:encoded>\n`,
         );
       }
       itemParts.push(`    </item>\n`);
