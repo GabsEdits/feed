@@ -1,7 +1,7 @@
 <div align="center">
 <h1>@feed/feed</h1>
-<p>A modern, fast, and easy-to-use RSS and Atom feed generator for Deno.</p>
-<small>Replacement for <a href="https://npmjs.com/package/feed">feed</a> package.</small>
+<p>A modern, fast, and easy-to-use RSS and Atom feed generator for Deno.
+<br><small>Replacement for <a href="https://npmjs.com/package/feed">feed</a> package.</small></p>
 </div>
 
 - Build with modern technologies, and the latest standards, using TypeScript and
