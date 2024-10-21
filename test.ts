@@ -1,4 +1,4 @@
-import { atom, json, rss } from "@feed/feed";
+import { Atom, Json, Rss } from "@feed/feed";
 
 function assertEquals(actual: string, expected: string): void {
   if (actual !== expected) {
@@ -17,7 +17,7 @@ function assertEquals(actual: string, expected: string): void {
 }
 
 Deno.test("RSS Feed Generation", () => {
-  const rssFeed = new rss({
+  const rssFeed = new Rss({
     title: "RSS Feed Example",
     description: "A simple RSS feed example",
     link: "http://example.com/rss-feed",
@@ -71,7 +71,7 @@ Deno.test("RSS Feed Generation", () => {
 });
 
 Deno.test("Atom Feed Generation", () => {
-  const atomFeed = new atom({
+  const atomFeed = new Atom({
     title: "Atom Feed Example",
     description: "A simple Atom feed example",
     link: "http://example.com/atom-feed",
@@ -126,7 +126,7 @@ Deno.test("Atom Feed Generation", () => {
 });
 
 Deno.test("JSON Feed Generation", () => {
-  const jsonFeed = new json({
+  const jsonFeed = new Json({
     title: "JSON Feed Example",
     description: "A simple JSON feed example",
     link: "http://example.com/json-feed",

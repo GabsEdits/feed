@@ -1,6 +1,7 @@
 <div align="center">
 <h1>@feed/feed</h1>
-<p>A simple, and easy RSS and Atom feed generator for Deno.</p>
+<p>A modern, fast, and easy-to-use RSS and Atom feed generator for Deno.</p>
+<small>Replacement for <a href="https://npmjs.com/package/feed">feed</a> package.</small>
 </div>
 
 - Build with modern technologies, and the latest standards, using TypeScript and
@@ -33,7 +34,7 @@ deno add @feed/feed
 ```typescript
 import { atom } from "@feed/feed";
 
-const atomFeed = new atom({
+const atomFeed = new Atom({
   title: "Atom Feed Example",
   description: "A simple Atom feed example",
   link: "http://example.com/atom-feed",
@@ -65,7 +66,7 @@ Deno.writeTextFileSync("example.xml", atomFeed.build());
 ```typescript
 import { rss } from "@feed/feed";
 
-const rssFeed = new rss({
+const rssFeed = new Rss({
   title: "RSS Feed Example",
   description: "A simple RSS feed example",
   link: "http://example.com/rss-feed",
@@ -97,7 +98,7 @@ Deno.writeTextFileSync("example.rss", rssFeed.build());
 ```typescript
 import { json } from "@feed/feed";
 
-const jsonFeed = new json({
+const jsonFeed = new Json({
   title: "JSON Feed Example",
   description: "A simple JSON feed example",
   link: "http://example.com/json-feed",
