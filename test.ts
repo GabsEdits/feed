@@ -38,8 +38,10 @@ Deno.test("RSS Feed Generation", () => {
     id: "http://example.com/rss1",
     updated: new Date("2024-10-19T15:12:56Z"),
     description: "Description for RSS item 1",
-    content: "Content for RSS item 1",
-    contentType: "html",
+    content: {
+      body: "Content for RSS item 1",
+      type: "html",
+    },
   });
 
   const expected = `
@@ -92,8 +94,10 @@ Deno.test("Atom Feed Generation", () => {
     id: "1",
     updated: new Date("2024-10-19T15:12:56Z"),
     summary: "Summary for Atom item 1",
-    content: "Content for Atom item 1",
-    contentType: "html",
+    content: {
+      body: "Content for Atom item 1",
+      type: "html",
+    },
   });
 
   const expected = `

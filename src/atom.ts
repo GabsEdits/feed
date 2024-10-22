@@ -7,8 +7,10 @@ interface AtomEntry {
   updated: Date;
   image?: string;
   summary: string;
-  content?: string;
-  contentType?: string;
+  content: {
+    body: string;
+    type: string;
+  };
 }
 
 export class AtomFeed extends BaseFeed<AtomEntry> {
@@ -55,8 +57,8 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
         `    <id>${escapeXml(entry.id)}</id>\n`,
         `    <updated>${entry.updated.toISOString()}</updated>\n`,
         `    <summary>${escapeXml(entry.summary)}</summary>\n`,
-        `    <content type="${entry.contentType || "text"}">${
-          escapeXml(entry.content || entry.summary)
+        `    <content type="${entry.content.type || "text"}">${
+          escapeXml(entry.content.body || entry.summary)
         }</content>\n`,
         entry.image
           ? `    <media:thumbnail url="${escapeXml(entry.image)}" />\n`

@@ -6,8 +6,10 @@ interface RssItem {
   id: string;
   updated: Date;
   description: string;
-  content?: string;
-  contentType?: string;
+  content: {
+    body: string;
+    type: string;
+  };
 }
 
 export class RssFeed extends BaseFeed<RssItem> {
@@ -52,10 +54,10 @@ export class RssFeed extends BaseFeed<RssItem> {
         `      <description>${escapeXml(item.description)}</description>\n`,
       ];
       if (item.content) {
-        const contentType = item.contentType || "text";
+        const contentType = item.content.type || "text";
         itemParts.push(
           `      <content:encoded type="${contentType}">${
-            escapeXml(item.content)
+            escapeXml(item.content.body)
           }</content:encoded>\n`,
         );
       }
