@@ -8,7 +8,8 @@
 <br><small>Replacement for <a href="https://npmjs.com/package/feed">feed</a> package.</small></p>
 </div>
 
-- Build with modern technologies, and the latest standards, using TypeScript and Deno.
+- Build with modern technologies, and the latest standards, using TypeScript and
+  Deno.
 - Using JSR, insuring the best performance, and the best compatibility.
 - Supported feed formats: RSS 2.0, Atom 1.0 and JSON Feed 1.1.
 - Easy to use, and easy to customize.
