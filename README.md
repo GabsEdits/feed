@@ -1,11 +1,14 @@
 <div align="center">
-<img src="https://github.com/user-attachments/assets/9853859d-415e-434f-b154-660fbfb1ae66" width="220" />
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/a5b534dd-741c-4506-9890-1a7a849bc52f">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/c76ceb71-6ad5-49a8-89df-5084d7a713ba">
+    <img alt="Feed logo" src="https://github.com/user-attachments/assets/c76ceb71-6ad5-49a8-89df-5084d7a713ba" width="220">
+  </picture>
 <p>A modern, fast, and easy-to-use RSS and Atom feed generator for Deno.
 <br><small>Replacement for <a href="https://npmjs.com/package/feed">feed</a> package.</small></p>
 </div>
 
-- Build with modern technologies, and the latest standards, using TypeScript and
-  Deno.
+- Build with modern technologies, and the latest standards, using TypeScript and Deno.
 - Using JSR, insuring the best performance, and the best compatibility.
 - Supported feed formats: RSS 2.0, Atom 1.0 and JSON Feed 1.1.
 - Easy to use, and easy to customize.
