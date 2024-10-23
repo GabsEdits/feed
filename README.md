@@ -1,5 +1,5 @@
 <div align="center">
-<h1>@feed/feed</h1>
+<img src="https://github.com/user-attachments/assets/9853859d-415e-434f-b154-660fbfb1ae66" width="220" />
 <p>A modern, fast, and easy-to-use RSS and Atom feed generator for Deno.
 <br><small>Replacement for <a href="https://npmjs.com/package/feed">feed</a> package.</small></p>
 </div>
