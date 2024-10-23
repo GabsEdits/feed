@@ -27,7 +27,9 @@ export class RssFeed extends BaseFeed<RssItem> {
       `    <link>${escapeXml(this.options.link)}</link>\n`,
       `    <lastBuildDate>${this.options.updated?.toUTCString()}</lastBuildDate>\n`,
       `    <language>${this.options.language || "en"}</language>\n`,
-      `    <generator>Feed from JSR</generator>\n`,
+      `    <generator>${
+        this.options.generator || "Feed for Deno"
+      }</generator>\n`,
     ];
 
     this.options.authors.forEach((author) => {

@@ -25,8 +25,8 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
       `  <title>${escapeXml(this.options.title)}</title>\n`,
       `  <subtitle>${escapeXml(this.options.description)}</subtitle>\n`,
       `  <link rel="alternate" href="${escapeXml(this.options.link)}"/>\n`,
-      `  <updated>${this.options.updated.toISOString()}</updated>\n`,
-      `  <generator>Feed for Deno/JSR</generator>\n`,
+      `  <updated>${this.options.updated?.toISOString()}</updated>\n`,
+      `  <generator>${this.options.generator || "Feed from JSR"}</generator>\n`,
     ];
 
     this.options.authors.forEach((author) => {

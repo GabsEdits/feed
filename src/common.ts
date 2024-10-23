@@ -2,9 +2,10 @@ export interface FeedOptions {
   title: string;
   description: string;
   link: string;
-  updated: Date;
+  updated?: Date;
   id?: string;
   language?: string;
+  generator?: string;
   feedLinks?: {
     atom?: string;
   };
@@ -43,7 +44,10 @@ export abstract class BaseFeed<T> {
   protected categories: Array<string>;
 
   constructor(options: FeedOptions) {
-    this.options = options;
+    this.options = {
+      ...options,
+      updated: options.updated || new Date(),
+    };
     this.items = [];
     this.categories = [];
   }
