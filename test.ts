@@ -53,7 +53,7 @@ Deno.test("RSS Feed Generation", () => {
         <link>http://example.com/rss-feed</link>
         <lastBuildDate>Sat, 19 Oct 2024 15:12:56 GMT</lastBuildDate>
         <language>en</language>
-        <generator>Feed from JSR</generator>
+        <generator>Feed for Deno</generator>
         <webMaster>test@example.org (John Doe)</webMaster>
         <author>test@example.org (John Doe)</author>
         <managingEditor>test@example.org (John Doe)</managingEditor>
@@ -107,7 +107,7 @@ Deno.test("Atom Feed Generation", () => {
       <subtitle>A simple Atom feed example</subtitle>
       <link rel="alternate" href="http://example.com/atom-feed"/>
       <updated>2024-10-19T15:12:56.000Z</updated>
-      <generator>Feed for Deno/JSR</generator>
+      <generator>Feed for Deno</generator>
       <author>
         <name>John Doe</name>
         <email>test@example.org</email>
