@@ -9,7 +9,7 @@ interface AtomEntry {
   summary: string;
   content: {
     body: string;
-    type: string;
+    type?: string;
   };
 }
 
