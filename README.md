@@ -130,8 +130,3 @@ jsonFeed.addItem({
 
 Deno.writeTextFileSync("example.json", jsonFeed.build());
 ```
-
-## Roadmap
-
-- [x] Allow multiple authors.
-- [x] Add contributors.
