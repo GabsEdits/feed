@@ -36,7 +36,7 @@ deno add @feed/feed
 ### Atom Feed
 
 ```typescript
-import { atom } from "@feed/feed";
+import { Atom } from "@feed/feed";
 
 const atomFeed = new Atom({
   title: "Atom Feed Example",
@@ -70,7 +70,7 @@ Deno.writeTextFileSync("example.xml", atomFeed.build());
 ### RSS Feed
 
 ```typescript
-import { rss } from "@feed/feed";
+import { Rss } from "@feed/feed";
 
 const rssFeed = new Rss({
   title: "RSS Feed Example",
@@ -104,7 +104,7 @@ Deno.writeTextFileSync("example.rss", rssFeed.build());
 ### JSON Feed
 
 ```typescript
-import { json } from "@feed/feed";
+import { Json } from "@feed/feed";
 
 const jsonFeed = new Json({
   title: "JSON Feed Example",
