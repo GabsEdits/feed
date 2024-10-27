@@ -20,28 +20,20 @@ export interface FeedOptions {
 }
 
 export function escapeXml(unsafe: string): string {
-  return unsafe.replace(/[<>&'"]/g, (c) => {
-    switch (c) {
-      case "<":
-        return "&lt;";
-      case ">":
-        return "&gt;";
-      case "&":
-        return "&amp;";
-      case "'":
-        return "&apos;";
-      case '"':
-        return "&quot;";
-      default:
-        return c;
-    }
-  });
+  const escapeMap: { [key: string]: string } = {
+    "<": "&lt;",
+    ">": "&gt;",
+    "&": "&amp;",
+    "'": "&apos;",
+    '"': "&quot;",
+  };
+  return unsafe.replace(/[<>&'"]/g, (c) => escapeMap[c] || c);
 }
 
 export abstract class BaseFeed<T> {
   protected options: FeedOptions;
   protected items: Array<T>;
-  protected categories: Array<string>;
+  protected categories: Set<string>;
 
   constructor(options: FeedOptions) {
     this.options = {
@@ -49,7 +41,7 @@ export abstract class BaseFeed<T> {
       updated: options.updated || new Date(),
     };
     this.items = [];
-    this.categories = [];
+    this.categories = new Set();
   }
 
   abstract build(): string;
@@ -59,7 +51,7 @@ export abstract class BaseFeed<T> {
   }
 
   addCategory(category: string) {
-    this.categories.push(category);
+    this.categories.add(category);
   }
 
   addContributor(contributor: { name: string; email: string; link?: string }) {

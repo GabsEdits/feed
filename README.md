@@ -4,7 +4,7 @@
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/c76ceb71-6ad5-49a8-89df-5084d7a713ba">
     <img alt="Feed logo" src="https://github.com/user-attachments/assets/c76ceb71-6ad5-49a8-89df-5084d7a713ba" width="220">
   </picture>
-<p>A modern, fast, and easy-to-use RSS and Atom feed generator for Deno.
+<p>A modern, fast, and easy-to-use RSS, JSON and Atom feed generator for Deno.
 <br><small>Replacement for <a href="https://npmjs.com/package/feed">feed</a> package.</small></p>
 </div>
 

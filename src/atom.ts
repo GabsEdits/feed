@@ -29,14 +29,14 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
       `  <generator>${this.options.generator || "Feed for Deno"}</generator>\n`,
     ];
 
-    this.options.authors.forEach((author) => {
+    for (const author of this.options.authors) {
       xmlParts.push(
         `  <author>\n`,
         `    <name>${escapeXml(author.name)}</name>\n`,
         `    <email>${escapeXml(author.email)}</email>\n`,
         `  </author>\n`,
       );
-    });
+    }
 
     if (this.options.icon) {
       xmlParts.push(`  <icon>${escapeXml(this.options.icon)}</icon>\n`);
@@ -49,7 +49,7 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
       );
     }
 
-    this.items.forEach((entry) => {
+    for (const entry of this.items) {
       xmlParts.push(
         `  <entry>\n`,
         `    <title>${escapeXml(entry.title)}</title>\n`,
@@ -65,11 +65,11 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
           : "",
         `  </entry>\n`,
       );
-    });
+    }
 
-    this.categories.forEach((category) => {
+    for (const category of this.categories) {
       xmlParts.push(`  <category term="${escapeXml(category)}"/>\n`);
-    });
+    }
 
     xmlParts.push(`</feed>\n`);
     return xmlParts.join("");

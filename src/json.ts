@@ -21,18 +21,15 @@ export class JsonFeed extends BaseFeed<JsonItem> {
       feed_url: this.options.feed,
       icon: this.options.icon,
       updated: this.options.updated?.toISOString(),
-      items: this.items.map((item) => {
-        const jsonItem: Record<string, unknown> = {
-          id: item.id,
-          title: item.title,
-          url: item.url,
-          date_published: item.date_published.toISOString(),
-        };
-        if (item.content_html) {
-          jsonItem.content_html = item.content_html;
-        }
-        return jsonItem;
-      }),
+      items: this.items.map((
+        { id, title, url, date_published, content_html },
+      ) => ({
+        id,
+        title,
+        url,
+        date_published: date_published.toISOString(),
+        ...(content_html && { content_html }),
+      })),
     };
     return JSON.stringify(json, null, 2);
   }
