@@ -13,11 +13,20 @@ interface AtomEntry {
   };
 }
 
+/** Class representing an Atom feed. */
 export class AtomFeed extends BaseFeed<AtomEntry> {
+  /**
+   * Create an AtomFeed.
+   * @param {FeedOptions} options - The feed options.
+   */
   constructor(options: FeedOptions) {
     super(options);
   }
 
+  /**
+   * Build the Atom feed XML string.
+   * @returns {string} The XML string of the Atom feed.
+   */
   build(): string {
     const xmlParts: string[] = [
       `<?xml version="1.0" encoding="UTF-8"?>\n`,

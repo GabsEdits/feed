@@ -12,11 +12,20 @@ interface RssItem {
   };
 }
 
+/** Class representing an RSS feed. */
 export class RssFeed extends BaseFeed<RssItem> {
+  /**
+   * Create an RSS feed.
+   * @param {FeedOptions} options - The options for the feed.
+   */
   constructor(options: FeedOptions) {
     super(options);
   }
 
+  /**
+   * Build the RSS feed XML string.
+   * @returns {string} The RSS feed as an XML string.
+   */
   build(): string {
     const xmlParts: string[] = [
       `<?xml version="1.0" encoding="UTF-8"?>\n`,

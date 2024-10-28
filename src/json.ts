@@ -8,11 +8,20 @@ interface JsonItem {
   url: string;
 }
 
+/** This class represents a JSON Feed and provides methods to build the feed. */
 export class JsonFeed extends BaseFeed<JsonItem> {
+  /**
+   * Constructs a new JsonFeed instance.
+   * @param options - The options for the feed.
+   */
   constructor(options: FeedOptions) {
     super(options);
   }
 
+  /**
+   * Builds the JSON feed and returns it as a string.
+   * @returns The JSON feed as a string.
+   */
   build(): string {
     const json: Record<string, unknown> = {
       version: "https://jsonfeed.org/version/1",
