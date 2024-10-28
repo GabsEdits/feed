@@ -32,37 +32,39 @@ export class RssFeed extends BaseFeed<RssItem> {
       }</generator>\n`,
     ];
 
-    const authorXml = this.options.authors.map((author) =>
-      `    <webMaster>${escapeXml(author.email)} (${
-        escapeXml(author.name)
-      })</webMaster>\n` +
-      `    <author>${escapeXml(author.email)} (${
-        escapeXml(author.name)
-      })</author>\n` +
-      `    <managingEditor>${escapeXml(author.email)} (${
-        escapeXml(author.name)
-      })</managingEditor>\n`
-    ).join("");
-    xmlParts.push(authorXml);
+    if (this.options.authors.length > 0) {
+      const authorXml = this.options.authors.map((author) => {
+        const escapedEmail = escapeXml(author.email);
+        const escapedName = escapeXml(author.name);
+        return (
+          `    <webMaster>${escapedEmail} (${escapedName})</webMaster>\n` +
+          `    <author>${escapedEmail} (${escapedName})</author>\n` +
+          `    <managingEditor>${escapedEmail} (${escapedName})</managingEditor>\n`
+        );
+      }).join("");
+      xmlParts.push(authorXml);
+    }
 
-    const itemsXml = this.items.map((item) => {
-      const contentXml = item.content
-        ? `      <content:encoded type="${
-          escapeXml(item.content.type || "text")
-        }">${escapeXml(item.content.body)}</content:encoded>\n`
-        : "";
-      return (
-        `    <item>\n` +
-        `      <title>${escapeXml(item.title)}</title>\n` +
-        `      <link>${escapeXml(item.link)}</link>\n` +
-        `      <guid>${escapeXml(item.id)}</guid>\n` +
-        `      <pubDate>${item.updated.toUTCString()}</pubDate>\n` +
-        `      <description>${escapeXml(item.description)}</description>\n` +
-        contentXml +
-        `    </item>\n`
-      );
-    }).join("");
-    xmlParts.push(itemsXml);
+    if (this.items.length > 0) {
+      const itemsXml = this.items.map((item) => {
+        const contentXml = item.content
+          ? `      <content:encoded type="${
+            escapeXml(item.content.type || "text")
+          }">${escapeXml(item.content.body)}</content:encoded>\n`
+          : "";
+        return (
+          `    <item>\n` +
+          `      <title>${escapeXml(item.title)}</title>\n` +
+          `      <link>${escapeXml(item.link)}</link>\n` +
+          `      <guid>${escapeXml(item.id)}</guid>\n` +
+          `      <pubDate>${item.updated.toUTCString()}</pubDate>\n` +
+          `      <description>${escapeXml(item.description)}</description>\n` +
+          contentXml +
+          `    </item>\n`
+        );
+      }).join("");
+      xmlParts.push(itemsXml);
+    }
 
     xmlParts.push(`  </channel>\n`, `</rss>\n`);
     return xmlParts.join("");
