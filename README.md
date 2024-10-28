@@ -28,7 +28,7 @@ npx jsr add @feed/feed
 or
 
 ```bash
-deno add @feed/feed
+deno add jsr:@feed/feed
 ```
 
 ### Examples
