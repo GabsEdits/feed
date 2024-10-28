@@ -2,5 +2,5 @@
   "name": "@feed/feed",
   "version": "1.0.1",
   "exports": "./mod.ts",
-  "exclude": [".github"]
+  "exclude": [".github", "CONTRIBUTING.md"]
 }
