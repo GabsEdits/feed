@@ -6,6 +6,11 @@
   </picture>
 <p>A modern, fast, and easy-to-use RSS, JSON and Atom feed generator for Deno.
 <br><small>Replacement for <a href="https://npmjs.com/package/feed">feed</a> package.</small></p>
+
+[![JSR](https://jsr.io/badges/@feed/feed)](https://jsr.io/@feed/feed)
+[![JSR Score](https://jsr.io/badges/@feed/feed/score)](https://jsr.io/@feed/feed)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/GabsEdits/feed/test.yml)
+
 </div>
 
 - Build with modern technologies, and the latest standards, using TypeScript and
