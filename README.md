@@ -135,3 +135,20 @@ jsonFeed.addItem({
 
 Deno.writeTextFileSync("example.json", jsonFeed.build());
 ```
+
+---
+
+## Know your rights
+
+This project is under the GPL-3.0 License:
+
+- **Permissions**: Commercial use, Modification, Distribution, Private use.
+- **Limitations**: Liability, Warranty.
+- **Conditions**: License and copyright notice. State changes, and
+  Disclose source.
+
+Read the full license [here](LICENSE).
+
+## Contributing
+
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
