@@ -10,6 +10,7 @@ interface RssItem {
     body: string;
     type: string;
   };
+  image?: string;
 }
 
 /** Class representing an RSS feed. */
@@ -61,6 +62,9 @@ export class RssFeed extends BaseFeed<RssItem> {
             escapeXml(item.content.type || "text")
           }">${escapeXml(item.content.body)}</content:encoded>\n`
           : "";
+        const imageXml = item.image
+          ? `      <media:thumbnail url="${escapeXml(item.image)}" />\n`
+          : "";
         return (
           `    <item>\n` +
           `      <title>${escapeXml(item.title)}</title>\n` +
@@ -69,6 +73,7 @@ export class RssFeed extends BaseFeed<RssItem> {
           `      <pubDate>${item.updated.toUTCString()}</pubDate>\n` +
           `      <description>${escapeXml(item.description)}</description>\n` +
           contentXml +
+          imageXml +
           `    </item>\n`
         );
       }).join("");
