@@ -144,8 +144,8 @@ This project is under the GPL-3.0 License:
 
 - **Permissions**: Commercial use, Modification, Distribution, Private use.
 - **Limitations**: Liability, Warranty.
-- **Conditions**: License and copyright notice. State changes, and
-  Disclose source.
+- **Conditions**: License and copyright notice. State changes, and Disclose
+  source.
 
 Read the full license [here](LICENSE).
 
