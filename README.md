@@ -53,7 +53,6 @@ const atomFeed = new Atom({
       email: "test@example.org",
     },
   ],
-  updated: new Date("2024-10-19T15:12:56Z"),
   id: "https://example.com/atom-feed",
 });
 
@@ -61,7 +60,7 @@ atomFeed.addItem({
   title: "First Atom Item",
   link: "http://example.com/atom1",
   id: "1",
-  updated: new Date("2024-10-19T15:12:56Z"),
+  updated: new Date(),
   summary: "Summary for Atom item 1",
   content: {
     body: "Content for Atom item 1",
@@ -81,7 +80,6 @@ const rssFeed = new Rss({
   title: "RSS Feed Example",
   description: "A simple RSS feed example",
   link: "http://example.com/rss-feed",
-  updated: new Date("2024-10-19T15:12:56Z"),
   id: "http://example.com/rss-feed",
   authors: [
     {
@@ -122,7 +120,6 @@ const jsonFeed = new Json({
       email: "test@example.org",
     },
   ],
-  updated: new Date("2024-10-19T15:12:56Z"),
 });
 
 jsonFeed.addItem({
