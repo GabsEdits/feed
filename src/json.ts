@@ -3,7 +3,7 @@ import { BaseFeed, type FeedOptions } from "./common.ts";
 interface JsonItem {
   title: string;
   id: string;
-  date_published: Date;
+  date_published?: Date;
   content_html?: string;
   url: string;
 }
@@ -36,7 +36,7 @@ export class JsonFeed extends BaseFeed<JsonItem> {
         id,
         title,
         url,
-        date_published: date_published.toISOString(),
+        date_published: date_published?.toISOString() || new Date().toUTCString,
         ...(content_html && { content_html }),
       })),
     };

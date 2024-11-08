@@ -4,7 +4,7 @@ interface AtomEntry {
   title: string;
   link: string;
   id: string;
-  updated: Date;
+  updated?: Date;
   image?: string;
   summary: string;
   content?: {
@@ -64,7 +64,10 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
         `    <title>${escapeXml(entry.title)}</title>\n`,
         `    <link href="${escapeXml(entry.link)}"/>\n`,
         `    <id>${escapeXml(entry.id)}</id>\n`,
-        `    <updated>${entry.updated.toISOString()}</updated>\n`,
+        `    <updated>${
+          entry.updated?.toUTCString() ||
+          new Date().toUTCString()
+        }</updated>\n`,
         `    <summary>${escapeXml(entry.summary)}</summary>\n`,
         `    <content type="${entry.content?.type || "text"}">${
           escapeXml(entry.content?.body || entry.summary)

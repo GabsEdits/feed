@@ -4,7 +4,7 @@ interface RssItem {
   title: string;
   link: string;
   id: string;
-  updated: Date;
+  updated?: Date;
   description: string;
   content: {
     body: string;
@@ -70,7 +70,10 @@ export class RssFeed extends BaseFeed<RssItem> {
           `      <title>${escapeXml(item.title)}</title>\n` +
           `      <link>${escapeXml(item.link)}</link>\n` +
           `      <guid>${escapeXml(item.id)}</guid>\n` +
-          `      <pubDate>${item.updated.toUTCString()}</pubDate>\n` +
+          `      <pubDate>${
+            item.updated?.toUTCString() ||
+            new Date().toUTCString()
+          }</pubDate>\n` +
           `      <description>${escapeXml(item.description)}</description>\n` +
           contentXml +
           imageXml +

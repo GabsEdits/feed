@@ -14,7 +14,7 @@ export interface FeedOptions {
   };
   authors: Array<{
     name: string;
-    email: string;
+    email?: string;
     link?: string;
   }>;
   copyright?: string;
