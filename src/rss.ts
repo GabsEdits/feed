@@ -44,12 +44,13 @@ export class RssFeed extends BaseFeed<RssItem> {
 
     if (this.options.authors.length > 0) {
       const authorXml = this.options.authors.map((author) => {
-        const escapedEmail = escapeXml(author.email);
+        const escapedEmail = author.email ? escapeXml(author.email) : "";
         const escapedName = escapeXml(author.name);
+        const emailPart = escapedEmail ? `${escapedEmail} ` : "";
         return (
-          `    <webMaster>${escapedEmail} (${escapedName})</webMaster>\n` +
-          `    <author>${escapedEmail} (${escapedName})</author>\n` +
-          `    <managingEditor>${escapedEmail} (${escapedName})</managingEditor>\n`
+          `    <webMaster>${emailPart}(${escapedName})</webMaster>\n` +
+          `    <author>${emailPart}(${escapedName})</author>\n` +
+          `    <managingEditor>${emailPart}(${escapedName})</managingEditor>\n`
         );
       }).join("");
       xmlParts.push(authorXml);

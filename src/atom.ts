@@ -42,9 +42,17 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
       xmlParts.push(
         `  <author>\n`,
         `    <name>${escapeXml(author.name)}</name>\n`,
-        `    <email>${escapeXml(author.email)}</email>\n`,
-        `  </author>\n`,
       );
+
+      if (author.email) {
+        xmlParts.push(`    <email>${escapeXml(author.email)}</email>\n`);
+      }
+
+      if (author.link) {
+        xmlParts.push(`    <uri>${escapeXml(author.link)}</uri>\n`);
+      }
+
+      xmlParts.push(`  </author>\n`);
     }
 
     if (this.options.icon) {

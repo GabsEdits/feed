@@ -80,7 +80,6 @@ Deno.test("Atom Feed Generation", () => {
     authors: [
       {
         name: "John Doe",
-        email: "test@example.org",
         link: "https://example.org",
       },
     ],
@@ -110,13 +109,13 @@ Deno.test("Atom Feed Generation", () => {
       <generator>Feed for Deno</generator>
       <author>
         <name>John Doe</name>
-        <email>test@example.org</email>
+        <uri>https://example.org</uri>
       </author>
       <entry>
         <title>First Atom Item</title>
         <link href="http://example.com/atom1"/>
         <id>1</id>
-        <updated>2024-10-19T15:12:56.000Z</updated>
+        <updated>Sat, 19 Oct 2024 15:12:56 GMT</updated>
         <summary>Summary for Atom item 1</summary>
         <content type="html">Content for Atom item 1</content>
       </entry>

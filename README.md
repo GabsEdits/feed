@@ -51,7 +51,6 @@ const atomFeed = new Atom({
   authors: [
     {
       name: "John Doe",
-      email: "test@example.org",
     },
   ],
   id: "https://example.com/atom-feed",
