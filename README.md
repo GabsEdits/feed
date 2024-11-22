@@ -135,6 +135,10 @@ Deno.writeTextFileSync("example.json", jsonFeed.build());
 
 ---
 
+## Documentation
+
+Docs is being written, and will be available soon.
+
 ## Know your rights
 
 This project is under the GPL-3.0 License:

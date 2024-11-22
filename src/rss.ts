@@ -38,7 +38,7 @@ export class RssFeed extends BaseFeed<RssItem> {
       `    <lastBuildDate>${this.options.updated?.toUTCString()}</lastBuildDate>\n`,
       `    <language>${this.options.language || "en"}</language>\n`,
       `    <generator>${
-        escapeXml(this.options.generator || "Feed for Deno")
+        escapeXml(this.options.generator || "@feed/feed on JSR.io")
       }</generator>\n`,
     ];
 
