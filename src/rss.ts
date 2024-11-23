@@ -36,7 +36,7 @@ export class RssFeed extends BaseFeed<RssItem> {
       `    <description>${escapeXml(this.options.description)}</description>\n`,
       `    <link>${escapeXml(this.options.link)}</link>\n`,
       `    <lastBuildDate>${this.options.updated?.toUTCString()}</lastBuildDate>\n`,
-      `    <language>${this.options.language || "en"}</language>\n`,
+      `    <language>${this.options.language || "en-US"}</language>\n`,
       `    <generator>${
         escapeXml(this.options.generator || "@feed/feed on JSR.io")
       }</generator>\n`,
