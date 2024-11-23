@@ -137,7 +137,7 @@ Deno.writeTextFileSync("example.json", jsonFeed.build());
 
 ## Documentation
 
-Docs is being written, and will be available soon.
+You can find the full documentation [here](/DOCUMENTATION.md).
 
 ## Know your rights
 
