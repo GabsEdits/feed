@@ -4,7 +4,8 @@ This is the project's documentation, here you will find how to use the project.
 
 ### Common properties
 
-Here is the list of the properties that are common between the three feed types (RSS, Atom, JSON).
+Here is the list of the properties that are common between the three feed types
+(RSS, Atom, JSON).
 
 - `title`: Ditto
 - `description`: Ditto
@@ -12,7 +13,9 @@ Here is the list of the properties that are common between the three feed types 
 
 #### Authors
 
-The `authors` property is an array of authors, each author should have a `name` property, and optionally an `email` property and `link` property (the link can be any URL).
+The `authors` property is an array of authors, each author should have a `name`
+property, and optionally an `email` property and `link` property (the link can
+be any URL).
 
 The required properties of an author are:
 
@@ -34,9 +37,11 @@ The additional properties for the Atom feed are:
 
 ##### Extra Options
 
-- `updated`: The last time the feed was updated. By default, it's the current time, but you can set it to any date.
+- `updated`: The last time the feed was updated. By default, it's the current
+  time, but you can set it to any date.
 
-- `generator`: The generator of the feed, by default it's `@feed/feed on JSR.io`, but you can set it to any string.
+- `generator`: The generator of the feed, by default it's
+  `@feed/feed on JSR.io`, but you can set it to any string.
 
 - `icon`: The icon of the feed, it should be a URL.
 
@@ -53,7 +58,8 @@ The additional properties for the Atom feed are:
 
 ###### Content
 
-Ditto, the content of the item, it should be an object with a `body` property, and a `type` property.
+Ditto, the content of the item, it should be an object with a `body` property,
+and a `type` property.
 
 ```typescript
 content: {
@@ -64,7 +70,8 @@ content: {
 
 ###### Others
 
-- `updated`: The last time the item was updated. If not provided, it will be the current time.
+- `updated`: The last time the item was updated. If not provided, it will be the
+  current time.
 
 - `image`: The image of the item, it should be a URL.
 
@@ -76,13 +83,15 @@ The additional properties for the RSS feed are:
 
 **Note: All the properties are optional for the feed options.**
 
-- `generator`: The generator of the feed, by default it's `@feed/feed on JSR.io`, but you can set it to any string.
+- `generator`: The generator of the feed, by default it's
+  `@feed/feed on JSR.io`, but you can set it to any string.
 
 - `icon`: The icon of the feed, it should be a URL.
 
 - `feed`: The URL of the feed, it should be a URL.
 
-- `language`: The language of the feed, by default it's `en-US`, but you can set it to any language code.
+- `language`: The language of the feed, by default it's `en-US`, but you can set
+  it to any language code.
 
 #### Item Options
 
@@ -97,7 +106,8 @@ The additional properties for the RSS feed are:
 
 ###### Content
 
-Ditto, the content of the item, it should be an object with a `body` property, and a `type` property.
+Ditto, the content of the item, it should be an object with a `body` property,
+and a `type` property.
 
 ```typescript
 content: {
@@ -122,7 +132,8 @@ Optional properties:
 
 - `feed`: The URL of the feed, it should be a URL.
 
-- `updated`: The last time the feed was updated. By default, it's the current time, but you can set it to any date.
+- `updated`: The last time the feed was updated. By default, it's the current
+  time, but you can set it to any date.
 
 #### Item Options
 
@@ -133,4 +144,5 @@ Optional properties:
 
 Optional properties:
 
-- `date_published`: The date the item was published. By default, it's the current time, but you can set it to any date.
+- `date_published`: The date the item was published. By default, it's the
+  current time, but you can set it to any date.
