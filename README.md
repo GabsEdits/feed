@@ -27,14 +27,23 @@
 
 ### Installation
 
+Installation can be simply done by importing the generator you want to use, like
+so:
+
+```typescript
+import { Atom } from "jsr:@feed/feed";
+```
+
+But, you can also just download the package, simply by running:
+
 ```bash
-npx jsr add @feed/feed
+deno install jsr:@feed/feed
 ```
 
 or
 
 ```bash
-deno add jsr:@feed/feed
+npx jsr add @feed/feed
 ```
 
 ### Examples
