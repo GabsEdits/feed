@@ -55,7 +55,6 @@ Deno.test("RSS Feed Generation", () => {
         <language>en-US</language>
         <generator>@feed/feed on JSR.io</generator>
         <webMaster>test@example.org (John Doe)</webMaster>
-        <author>test@example.org (John Doe)</author>
         <managingEditor>test@example.org (John Doe)</managingEditor>
         <item>
           <title>First RSS Item</title>
@@ -157,7 +156,6 @@ Deno.test("JSON Feed Generation", () => {
       "title": "JSON Feed Example",
       "home_page_url": "http://example.com/json-feed",
       "feed_url": "http://example.com/json-feed/feed.json",
-      "updated": "2024-10-19T15:12:56.000Z",
       "items": [
         {
           "id": "1",
