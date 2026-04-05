@@ -51,6 +51,7 @@ export class RssFeed extends BaseFeed<RssItem> {
         const emailPart = escapedEmail ? `${escapedEmail} ` : "";
         return (
           `    <webMaster>${emailPart}(${escapedName})</webMaster>\n` +
+          `    <author>${emailPart}(${escapedName})</author>\n` +
           `    <managingEditor>${emailPart}(${escapedName})</managingEditor>\n`
         );
       }).join("");
