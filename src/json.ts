@@ -29,17 +29,16 @@ export class JsonFeed extends BaseFeed<JsonItem> {
       home_page_url: this.options.link,
       feed_url: this.options.feed,
       icon: this.options.icon,
-      items: this.items.map((
-        { id, title, url, date_published, content_html },
-      ) => ({
+      date_modified: this.options.updated?.toISOString(),
+      items: this.items.map(({ id, title, url, date_published, content_html }) => ({
         id,
         title,
         url,
-        date_published: date_published?.toISOString() ||
-          new Date().toUTCString(),
+        date_published: (date_published ?? new Date()).toISOString(),
         ...(content_html && { content_html }),
       })),
     };
+
     return JSON.stringify(json, null, 2);
   }
 }
