@@ -14,7 +14,7 @@ function assertEquals(actual: string, expected: string): void {
     const differences = actualLines.map((line, index) => {
       if (line !== expectedLines[index]) {
         return `Line ${index + 1}:\nActual: ${line}\nExpected: ${
-            expectedLines[index]
+          expectedLines[index]
         }`;
       }
       return null;
@@ -53,7 +53,9 @@ function parseXml(xml: string): Record<string, unknown> {
         const closing = closeMatch[1];
         const current = stack.pop();
         if (!current || current.name !== closing) {
-          throw new Error(`XML parse error: unexpected closing tag </${closing}>`);
+          throw new Error(
+            `XML parse error: unexpected closing tag </${closing}>`,
+          );
         }
         continue;
       }
@@ -248,17 +250,17 @@ Deno.test("RSS Feed Generation (well-formed + basic checks)", () => {
   const hasContentEncoded = xml.includes("<content:encoded");
   if (hasContentEncoded) {
     assert(
-        rss["@_xmlns:content"] ===
+      rss["@_xmlns:content"] ===
         "http://purl.org/rss/1.0/modules/content/",
-        "Missing/incorrect xmlns:content for <content:encoded>",
+      "Missing/incorrect xmlns:content for <content:encoded>",
     );
   }
 
   const hasMediaThumb = xml.includes("<media:thumbnail");
   if (hasMediaThumb) {
     assert(
-        rss["@_xmlns:media"] === "http://search.yahoo.com/mrss/",
-        "Missing/incorrect xmlns:media for <media:thumbnail>",
+      rss["@_xmlns:media"] === "http://search.yahoo.com/mrss/",
+      "Missing/incorrect xmlns:media for <media:thumbnail>",
     );
   }
 
@@ -267,7 +269,9 @@ Deno.test("RSS Feed Generation (well-formed + basic checks)", () => {
   assert(hasText(channel.link), "Missing channel link");
   assert(hasText(channel.description), "Missing channel description");
 
-  const itemValue = Array.isArray(channel.item) ? channel.item[0] : channel.item;
+  const itemValue = Array.isArray(channel.item)
+    ? channel.item[0]
+    : channel.item;
   const item = asRecord(itemValue, "Missing item element");
   assert(hasText(item.title), "Missing item title");
   assert(hasText(item.link), "Missing item link");
@@ -328,8 +332,8 @@ Deno.test("Atom Feed Generation (snapshot)", () => {
 `.replace(/\n\s+/g, "\n").trim();
 
   assertEquals(
-      atomFeed.build().replace(/\s/g, ""),
-      expected.replace(/\s/g, ""),
+    atomFeed.build().replace(/\s/g, ""),
+    expected.replace(/\s/g, ""),
   );
 });
 
@@ -377,12 +381,18 @@ Deno.test("Atom Feed Generation (well-formed + basic checks)", () => {
   const feedUpdated = typeof feed.updated === "string" ? feed.updated : null;
   // If your implementation uses ISO, enforce it:
   if (feedUpdated?.includes("T")) {
-    assert(isIsoDate(feedUpdated), `Feed <updated> should be ISO (got ${feedUpdated})`);
+    assert(
+      isIsoDate(feedUpdated),
+      `Feed <updated> should be ISO (got ${feedUpdated})`,
+    );
   }
 
   const entryUpdated = typeof entry.updated === "string" ? entry.updated : null;
   if (entryUpdated?.includes("T")) {
-    assert(isIsoDate(entryUpdated), `Entry <updated> should be ISO (got ${entryUpdated})`);
+    assert(
+      isIsoDate(entryUpdated),
+      `Entry <updated> should be ISO (got ${entryUpdated})`,
+    );
   }
 });
 
@@ -429,8 +439,8 @@ Deno.test("JSON Feed Generation (snapshot)", () => {
 `.replace(/\n\s+/g, "\n").trim();
 
   assertEquals(
-      jsonFeed.build().replace(/\s/g, ""),
-      expected.replace(/\s/g, ""),
+    jsonFeed.build().replace(/\s/g, ""),
+    expected.replace(/\s/g, ""),
   );
 });
 
@@ -457,7 +467,10 @@ Deno.test("JSON Feed Generation (parses + basic checks)", () => {
 
   assert(typeof obj.version === "string", "JSON Feed must have version");
   assert(typeof obj.title === "string", "JSON Feed must have title");
-  assert(typeof obj.home_page_url === "string", "JSON Feed must have home_page_url");
+  assert(
+    typeof obj.home_page_url === "string",
+    "JSON Feed must have home_page_url",
+  );
 
   const items = obj.items as Array<Record<string, unknown>>;
   assert(Array.isArray(items), "JSON Feed must have items array");
