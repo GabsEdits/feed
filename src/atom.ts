@@ -37,7 +37,7 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
       `  <id>${escapeXml(this.options.id ?? this.options.link)}</id>\n`,
       `  <updated>${this.options.updated?.toISOString()}</updated>\n`,
       `  <generator>${
-        this.options.generator || "@feed/feed on JSR.io"
+        escapeXml(this.options.generator || "@feed/feed on JSR.io")
       }</generator>\n`,
     ];
 
