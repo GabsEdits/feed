@@ -36,7 +36,9 @@ export class JsonFeed extends BaseFeed<JsonItem> {
         id,
         title,
         url,
-        date_published: (date_published ?? new Date()).toISOString(),
+        ...(date_published && {
+          date_published: date_published.toISOString(),
+        }),
         ...(content_html && { content_html }),
       })),
     };
