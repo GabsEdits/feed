@@ -30,7 +30,9 @@ export class JsonFeed extends BaseFeed<JsonItem> {
       feed_url: this.options.feed,
       icon: this.options.icon,
       date_modified: this.options.updated?.toISOString(),
-      items: this.items.map(({ id, title, url, date_published, content_html }) => ({
+      items: this.items.map((
+        { id, title, url, date_published, content_html },
+      ) => ({
         id,
         title,
         url,
