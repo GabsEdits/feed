@@ -34,10 +34,9 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
       `  <title>${escapeXml(this.options.title)}</title>\n`,
       `  <subtitle>${escapeXml(this.options.description)}</subtitle>\n`,
       `  <link rel="alternate" href="${escapeXml(this.options.link)}"/>\n`,
+      `  <id>${escapeXml(this.options.id ?? this.options.link)}</id>\n`,
       `  <updated>${this.options.updated?.toISOString()}</updated>\n`,
-      `  <generator>${
-        this.options.generator || "@feed/feed on JSR.io"
-      }</generator>\n`,
+      `  <generator>${this.options.generator || "@feed/feed on JSR.io"}</generator>\n`,
     ];
 
     for (const author of this.options.authors) {
@@ -74,10 +73,7 @@ export class AtomFeed extends BaseFeed<AtomEntry> {
         `    <title>${escapeXml(entry.title)}</title>\n`,
         `    <link href="${escapeXml(entry.link)}"/>\n`,
         `    <id>${escapeXml(entry.id)}</id>\n`,
-        `    <updated>${
-          entry.updated?.toUTCString() ||
-          new Date().toUTCString()
-        }</updated>\n`,
+        `    <updated>${(entry.updated ?? new Date()).toISOString()}</updated>\n`,
         `    <summary>${escapeXml(entry.summary)}</summary>\n`,
         `    <content type="${entry.content?.type || "text"}">${
           escapeXml(entry.content?.body || entry.summary)

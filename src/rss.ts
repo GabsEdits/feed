@@ -30,7 +30,9 @@ export class RssFeed extends BaseFeed<RssItem> {
   build(): string {
     const xmlParts: string[] = [
       `<?xml version="1.0" encoding="UTF-8"?>\n`,
-      `<rss version="2.0">\n`,
+      `<rss version="2.0"\n` +
+      `  xmlns:content="http://purl.org/rss/1.0/modules/content/"\n` +
+      `  xmlns:media="http://search.yahoo.com/mrss/">\n`,
       `  <channel>\n`,
       `    <title>${escapeXml(this.options.title)}</title>\n`,
       `    <description>${escapeXml(this.options.description)}</description>\n`,
